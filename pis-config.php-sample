@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * The base configuration for PIS
+ *
+ * @package PIS
+ */
+
+define( 'HOST_URL', 'http://' . $_SERVER['HTTP_HOST'] );
+define( 'PRODUCTION', true );
+define( 'PIS_HOME', HOST_URL );
+define( 'TIMEZONE', 'Asia/Manila' );
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for PIS */
+define( 'DB_NAME', 'database_name_here' );
+
+/** MySQL database username */
+define( 'DB_USER', 'username_here' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'password_here' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', 'utf8mb4_unicode_ci' );
+
+/* That's all, stop editing! */
+
+/** Absolute path to the PIS directory. */
+if ( ! defined( 'PIS_DIR' ) ) {
+  define( 'PIS_DIR', __DIR__ . '/' );
+}
+
+/**
+ * The Parsedown folder and directory.
+ *
+ * Fast and extensible Markdown parser in PHP. It supports GitHub Flavored Markdown
+ * and it adheres to CommonMark.
+ */
+define( 'PARSEDOWN_FOLDER', 'parsedown-1.7.4' );
+define( 'PARSEDOWN_DIR', PIS_DIR . 'dependencies/' . PARSEDOWN_FOLDER . '/' );
+
+/**
+ * The Smarty folder and directory.
+ *
+ * Smarty is a template engine for PHP, facilitating the separation of presentation
+ * (HTML/CSS) from application logic. This implies that PHP code is application logic,
+ * and is separated from the presentation. You can find more information
+ * by visiting {@link https://www.smarty.net/about_smarty All About Smarty | Smarty} page.
+ */
+define( 'SMARTY_FOLDER', 'smarty-4.3.0' );
+define( 'SMARTY_DIR', PIS_DIR . 'dependencies/' . SMARTY_FOLDER . '/libs/' );
+
+/** Sets up PIS vars and included files. */
+require_once( PIS_DIR . 'pis-settings.php' );
