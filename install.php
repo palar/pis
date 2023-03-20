@@ -24,6 +24,7 @@ default_settings( array(
   )
 );
 
+// Users
 $users = array(
   'receptionist' => array(
     'password' => 'abcde2023',
