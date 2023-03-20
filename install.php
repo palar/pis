@@ -24,28 +24,28 @@ default_settings( array(
   )
 );
 
-$default_users = array(
+$users = array(
   'receptionist' => array(
-    'password' => '$2y$10$u.soxSGV.eeoaeznBLudXux8ANYsehHUxUc98NlNzwyPsdGtikgMi',
+    'password' => 'abcde2023',
     'role'     => 'receptionist'
   ),
   'physician' => array(
-    'password' => '$2y$10$u.soxSGV.eeoaeznBLudXux8ANYsehHUxUc98NlNzwyPsdGtikgMi',
+    'password' => 'abcde2023',
     'role'     => 'physician'
   ),
   'r' => array(
-    'password' => '$2y$10$5NaQkk1whj490abUP35yqOhKHJvDoJUvFz96lMTxHft1ndf/D6yO6',
+    'password' => 'r',
     'role'     => 'receptionist'
   ),
   'p' => array(
-    'password' => '$2y$10$mUU.iYfbG.VIxGiEAPHOXuJkJyQHwW7Y01sKhUeal.a4lASVw1Jvq',
+    'password' => 'p',
     'role'     => 'physician'
   )
 );
 
 $account_id = 1;
-foreach ( $default_users as $username => $details ) {
-  $password = $details['password'];
+foreach ( $users as $username => $details ) {
+  $password = password_hash( $details['password'], PASSWORD_BCRYPT );
   $role = $details['role'];
   $pisdb->query( "INSERT INTO $pisdb->users (user_id, user_username, user_password, user_role) VALUES ($account_id, '$username', '$password', '$role')" );
   $account_id++;
