@@ -138,6 +138,11 @@ switch ( $type ) {
     $page_name = 'Check Up';
     $save_button_text = 'Add to Checkups';
 
+    // Get the last checkup's blood type.
+    if ( $checkup_blood_type = $pisdb->get_row( "SELECT checkup_blood_type FROM $pisdb->checkups WHERE checkup_patient_id = $patient_id ORDER BY checkup_patient_id DESC LIMIT 1" ) ) {
+      $checkup_blood_type = $checkup_blood_type->checkup_blood_type;
+    }
+
     $data = array_merge( $data, array(
         'app_title' => app_title( $page_name ),
         'page_title' => page_title( back_button( $previous ) . $page_name ),
@@ -158,7 +163,7 @@ switch ( $type ) {
           'weight'           => '',
           'height'           => '',
           'pulse_rate'       => '',
-          'blood_type'       => '',
+          'blood_type'       => $checkup_blood_type,
           'medications'      => '',
           'findings'         => '',
           'status'           => $default_status

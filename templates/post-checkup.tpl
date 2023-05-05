@@ -3,7 +3,7 @@
 {$page_title}
 <div class="alerts">{$alert}</div>
 <div class="d-grid gap-3 d-md-flex justify-content-md-end mb-3">
-  {if $checkup.status == 'published' && $physician}<a @click="disableLinkButton" class="btn btn-lg btn-primary w-100" href="{$print_link}">Print <small>(Medications)</small></a><a @click="disableLinkButton" class="btn btn-lg btn-primary w-100" href="{$print_link_all}">Print <small>(All)</small></a>{/if}
+  {if $checkup.status == 'published' && $physician}<a @click="disableLinkButton" class="btn btn-lg btn-primary w-100" href="{$print_link}">Print <small>(Medications)</small></a><a @click="disableLinkButton" class="btn btn-lg btn-primary w-100" href="{$print_link_all}">Print <small>(Medical Record)</small></a>{/if}
 </div>
 <form action="{$action_url}" method="post" class="d-print-none">
   <fieldset class="mb-4">
@@ -19,7 +19,7 @@
     {/if}
   </fieldset>
   <fieldset class="mb-4">
-    <legend>Additional information</legend>
+    <legend>Other information</legend>
     <div class="row g-3 mb-3">
       <div class="col-12">
         <div class="form-floating">

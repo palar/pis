@@ -92,9 +92,16 @@ switch ( $type ) {
         if ( $checkups = $pisdb->get_rows( "SELECT * FROM $pisdb->checkups WHERE checkup_status = 'published' AND checkup_patient_id = $patient_id ORDER BY checkup_date DESC" ) ) {
           foreach ( $checkups as $checkup ) {
             array_push( $data['checkups'], array(
-                'id'          => $checkup['checkup_id'],
-                'checkup_url' => app_home() . 'post.php?action=edit&checkup=' . $checkup['checkup_id'] . '&previous=' . urlencode( $_SERVER['REQUEST_URI'] ),
-                'date'        => date_format( date_create( $checkup['checkup_date'] ), "F j, Y" )
+                'id'               => $checkup['checkup_id'],
+                'checkup_url'      => app_home() . 'post.php?action=edit&checkup=' . $checkup['checkup_id'] . '&previous=' . urlencode( $_SERVER['REQUEST_URI'] ),
+                'date'             => date_format( date_create( $checkup['checkup_date'] ), "F j, Y" ),
+                'symptoms'         => $checkup['checkup_symptoms'],
+                'blood_pressure'   => $checkup['checkup_blood_pressure'],
+                'body_temperature' => $checkup['checkup_body_temperature'],
+                'weight'           => $checkup['checkup_weight'],
+                'pulse_rate'       => $checkup['checkup_pulse_rate'],
+                'medications'      => $checkup['checkup_medications'],
+                'findings'         => $checkup['checkup_findings']
               )
             );
           }
