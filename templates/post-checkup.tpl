@@ -59,7 +59,7 @@
       </div>
       <div class="col-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-floating">
-          <input type="text" class="form-control" id="checkup-blood-type" placeholder="Blood type" name="checkup_blood_type" value="{$checkup.blood_type|escape}">
+          <input type="text" class="form-control" id="checkup-blood-type" placeholder="Blood type" name="checkup_blood_type" value="{$checkup.blood_type|escape}"{if $checkup.blood_type != ''} disabled{/if}>
           <label for="checkup-blood-type">Blood type</label>
         </div>
       </div>
