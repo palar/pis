@@ -139,7 +139,7 @@ switch ( $type ) {
     $save_button_text = 'Add to Checkups';
 
     // Get the last checkup's blood type.
-    if ( $checkup_blood_type = $pisdb->get_row( "SELECT checkup_blood_type FROM $pisdb->checkups WHERE checkup_patient_id = $patient_id ORDER BY checkup_patient_id DESC LIMIT 1" ) ) {
+    if ( $checkup_blood_type = $pisdb->get_row( "SELECT checkup_blood_type FROM $pisdb->checkups WHERE checkup_patient_id = $patient_id ORDER BY checkup_patient_id ASC LIMIT 1" ) ) {
       $checkup_blood_type = $checkup_blood_type->checkup_blood_type;
     }
 
